@@ -1,0 +1,671 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
+
+
+/* The :root selector matches the document's root element.
+E.g.: You can use it to set the html document background color (background: #ff9900;)
+or to name root variables in CSS.*/
+:root{
+    --main-color: #be9c79;
+    --black: #333;
+    --white: #fff;
+    --light-color: #667;
+    --border: .2rem solid var(--black);
+    --box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+
+
+
+
+/* The * selector selects all elements.
+The * selector can also select all elements inside another element e.g. (div * { background-color: yellow; } ) */
+*{
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+
+
+
+
+/*What does ::before mean in CSS?
+In CSS, ::before creates a 'pseudo-element' that is 'the first child' of the 'selected element'. 
+It is often used to add cosmetic content to an element with the content property. 
+It is inline by default.
+
+The ::selection selector matches the portion of an element that is selected by a User.
+Only a few CSS properties can be applied to the ::selection selector: 
+color, background, cursor, and outline.*/
+*::selection{
+    background-color: var(--main-color);
+    color: var(--white);
+}
+
+
+
+
+
+/*Used to create custom scroll bars.
+The non-standard "::-webkit-scrollbar"  pseudo element, which allows us to modify the look of the browser's scrollbar.*/
+::-webkit-scrollbar{
+    height: .5rem;
+    width: 1rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #d3d3d3; 
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #940101; 
+}
+
+
+
+
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+/*
+overflow-x = specifies whether to clip the content, add a scroll bar, or display overflow 
+content of a block-level element, when it overflows at the left and right edges.
+Likewise the
+overflow-y = controls the top & bottom
+
+scroll-behavior = specifies whether to smoothly animate the scroll position, 
+instead of a straight jump, when the user clicks on a link within a scrollable box.
+
+scroll-padding-top =  the distance from the top of the container to the snap position on the child elements. */
+
+
+
+
+
+section{
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* Relative css length
+rem = Relative to font-size of the root element
+em	Relative to the font-size of the element (2em means 2 times the size of the current font of the parent element)*/
+
+
+
+
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: var(--main-color);
+    cursor: pointer;
+    color: var(--white);
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    border-radius: 2rem;
+}
+
+
+.btn:hover{
+    background-color: var(--black);
+}
+
+
+
+
+
+.header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    z-index: 1000;
+}
+
+.header .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 1.5rem 2rem; /*rem*/
+}
+
+
+.header .flex .logo img{
+    height: 4.5rem; /*rem*/
+}
+
+.header .flex .navbar a{
+    margin-left: 2rem;
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.header .flex .navbar a:hover{
+    text-decoration: underline;
+    color: var(--main-color);
+}
+
+
+/*Hamburger icon. It's an Id = # */
+#menu-btn{
+    display: none; /*we'll change it in smaller screens"*/ /*Update: This teacher makes media queries immediately as he goes.*/
+    font-size: 2.5rem;
+    color: var(--black);
+    cursor: pointer;
+}
+
+
+
+
+
+.home-bg{
+    background: linear-gradient(90deg, var(--white), transparent 70%), url(../Images/coffee\ bags\ from\ Rwanda.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home-bg .home{
+    min-height: 70rem;
+    display: flex;
+    align-items: center;
+}
+
+.home-bg .home .content{
+    width: 50rem;
+    text-align: center;
+}
+
+.home-bg .home .content h3{
+    font-size: 6rem;
+    color: var(--black);
+    font-family: 'Merienda', cursive;
+}
+
+.home-bg .home .content p{
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    color: var(--black);
+    line-height: 2rem;
+}
+
+
+
+.about{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.about .image {
+    flex: 1 1 40rem;
+}
+
+.about .image img {
+    width: 100%;
+}
+
+.about .content {
+    flex: 1 1 40rem;
+}
+
+.about .content h3 {
+font-size: 4rem;
+color: var(--black);
+/* font-family: 'Merienda One', cursive; */
+font-family: 'Merienda', cursive;
+padding-bottom: 1rem;
+}
+
+.about .content p {
+padding: 1rem 0;
+line-height: 2;
+color: var(--light-color);
+font-size: 1.5rem;
+}
+
+
+
+
+.heading {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.heading img {
+    height: 7rem;
+    /* margin-bottom: 0.1rem; */
+}
+
+.heading h3 {
+    font-size: 3rem;
+    color: var(--black);
+    font-family: 'Merienda', cursive;
+}
+
+
+.facility .box-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr)); 
+   grid-template-rows: repeat(auto-fit, minmax(27rem, 1fr)); 
+
+   /*fr means of the availale space it will take only 1 part. (i.e) 4 in a column. it takes 1/4*/
+   gap: 6rem;
+   align-items: flex-start;
+}
+ 
+
+.facility .box-container .box {
+    text-align: center;
+}
+
+.facility .box-container .box img {
+    height: 13rem;
+}
+
+.facility .box-container .box h3{
+    color: var(--black);
+    font-size: 2rem;
+    padding: 0.6rem;
+    font-family: 'Merienda', cursive;
+    color: var(--black);
+}
+
+.facility .box-container .box p {
+    font-size: 2rem;
+    text-align: justify;
+    font-style: bold;
+    font-family: 'Ink Free';
+    color: var(--light-color);
+}
+
+
+.facility
+{
+    margin-bottom: 6rem;
+}
+
+
+
+
+
+.menu .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem); 
+    gap: 6rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.menu .box-container .box {
+    text-align: center;
+}
+
+.menu .box-container .box img {
+    width: 100%;
+    /* margin-bottom: 1rem; */
+}
+
+.menu .box-container .box h3 {
+    font-size: 2rem;
+    color: var(--black);
+}
+
+
+
+
+
+.gallery .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem); 
+    gap: 2rem;
+    justify-content: center;
+}
+
+.gallery .box-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4rem; /*I did this on my own. I feel so proud. Aesthetically on point!*/
+    cursor: pointer;
+}
+
+
+
+
+/* I tried to do a zoom feature */
+.gallery .box-container .image-container
+{
+    position: relative;
+    transition: 2s ease;
+}
+
+.gallery .box-container .image-container:hover .overlay
+{   
+    cursor: pointer;
+    opacity: 1;
+}
+
+.gallery .box-container .image-container 
+{
+    overflow: hidden;
+    border-radius: 4rem;
+
+}
+.gallery .box-container .image-container:hover .imgcard img
+{
+    transform: scale(1.1);
+    transition: 0.2s ease-in;
+    width: 100%;
+}
+
+.gallery .box-container .image-container .overlay
+{
+    position: absolute;
+    background-color: rgba(221, 108, 16, 0.284);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+}
+
+.gallery .box-container .image-container .overlay .textcontent
+{
+    position: absolute; /* asbolute to the image container*/
+    left: 30px;
+    bottom: 15px;
+    font-size: 1.8rem;
+    color: white;
+}
+
+
+/* End of my zoom feature */
+
+
+
+
+
+
+
+
+
+
+.contact .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.contact .row .image
+{
+    flex: 0 1 auto;
+}
+
+.contact .row .image img
+{   
+    height: 25rem;
+/* padding-right: 4rem; */
+}
+
+.contact .row form {
+    flex: 1 1 30rem;
+    border: var(--border);
+    border-radius: 2rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.contact .row form h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--black);
+}
+
+.contact .row form .box {
+    width: 100%;
+    padding: 1.4rem;
+    font-size: 1.8rem;
+    color: var(--black);
+    border: var(--border);
+    margin: 1rem 0;
+}
+
+
+
+
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr)); 
+    gap: 1.5rem;
+    align-items: flex-start;
+    background-color: antiquewhite;
+    padding: 2.5rem 0;
+    margin-top: 5rem;
+}
+
+.footer .box-container .box 
+{
+    text-align: center;
+}
+
+.footer .box-container .box i
+{
+    font-size: 2.5rem;
+    line-height: 6rem;
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    color: var(--white);
+    margin-bottom: .5rem;
+}
+
+.footer .box-container .box h3
+{
+    margin: 1rem 0;
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.footer .box-container .box p
+{
+    line-height: 2;
+    font-size: 1.6rem;
+    color: var(--light-color);
+}
+
+.footer .credit 
+{
+    text-align: center;
+    margin: 3rem;
+    padding-top: 1rem;
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.footer .credit span
+{
+color: var(--main-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************************************************/
+
+             /* **  MEDIA QUERIES ** */
+
+/*********************************************************/
+
+
+@media (max-width:991px){
+    html{
+        font-size: 55%;
+    }
+}
+
+
+
+
+
+@media (max-width:768px){
+    #menu-btn{
+        display: inline-block;
+        transition: .2s linear;
+    }
+
+    #menu-btn.fa-times{ /*What is fa-times?*/
+        transform: rotate(180deg);
+    }
+
+    .header .flex .navbar{
+        position: absolute; /*learn about CSS positions*/
+        top: 99%;
+        left: 0;
+        right: 0;
+        background-color: var(--white);
+        border-top: var(--border);
+        border-bottom: var(--border);
+        /* He used the CSS clip path maker that he linked
+        link = https://bennettfeely.com/clippy/   */
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: .2s linear;
+    }
+
+    .header .flex .navbar.active{ /*what is .active? */
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .header .flex .navbar a{
+        display: block;
+        margin: 2rem;
+    }
+
+
+
+
+
+    .home-bg{
+        background-position: left;
+    }
+
+    .home-bg .home{
+        justify-content: center;
+    }
+
+    .home-bg .home .content h3{
+        font-size: 4rem;
+    }
+
+
+
+
+
+    .about .content h3 {
+        font-size: 3rem;
+    }
+}
+
+
+
+
+@media (max-width:450px){
+    html{
+        font-size: 50%;
+    }
+
+    .heading h3 {
+        font-size: 3rem;
+    }
+}
+
+
+
+
+
+
+/*End of Document*/
